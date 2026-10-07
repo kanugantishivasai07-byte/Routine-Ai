@@ -1,0 +1,40 @@
+#frus-assistant-box {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 300px;
+  z-index: 2147483647;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #1c1e26;
+  color: #f2f3f7;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  overflow: hidden;
+  animation: frus-in .25s ease-out;
+}
+@keyframes frus-in {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+#frus-assistant-box .frus-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; font-size: 13px; font-weight: 600;
+  background: linear-gradient(90deg, #ff6b6b, #ff9f43); color: #23140f;
+}
+#frus-assistant-box .frus-head button {
+  background: transparent; border: 0; color: inherit; font-size: 20px;
+  line-height: 1; cursor: pointer; padding: 0 4px;
+}
+#frus-assistant-box .frus-body { padding: 12px 14px 14px; font-size: 13px; }
+#frus-assistant-box .frus-body p { margin: 0 0 8px; }
+#frus-assistant-box .frus-label { font-size: 12px; opacity: .75; margin-bottom: 6px !important; }
+#frus-assistant-box .frus-alts { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+#frus-assistant-box .frus-alts a {
+  display: inline-block; padding: 6px 10px; border-radius: 8px;
+  background: #4f7cff; color: #fff; text-decoration: none; font-size: 12px; font-weight: 600;
+}
+#frus-assistant-box .frus-alts a:hover { background: #3b63e0; }
+#frus-assistant-box .frus-muted {
+  width: 100%; padding: 8px; border: 0; border-radius: 8px; cursor: pointer;
+  background: rgba(255,255,255,.12); color: inherit; font-size: 12px;
+}

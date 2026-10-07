@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frustration Assistant</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      width: 320px; margin: 0; padding: 16px; line-height: 1.45;
+    }
+    h1 { font-size: 16px; margin: 0 0 4px; }
+    p.sub { font-size: 12px; opacity: 0.7; margin: 0 0 14px; }
+    .row { display: flex; gap: 8px; margin-bottom: 12px; }
+    input[type="text"] {
+      flex: 1; padding: 8px; border: 1px solid rgba(128,128,128,.4);
+      border-radius: 8px; font-size: 13px; background: transparent; color: inherit;
+    }
+    button {
+      padding: 8px 12px; border: 0; border-radius: 8px; cursor: pointer;
+      font-size: 13px; font-weight: 600; background: #4f7cff; color: #fff;
+    }
+    button.ghost { background: rgba(128,128,128,.18); color: inherit; }
+    ul { list-style: none; padding: 0; margin: 0 0 12px; max-height: 180px; overflow: auto; }
+    li {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 10px; border-radius: 8px; font-size: 13px;
+      background: rgba(128,128,128,.10); margin-bottom: 6px;
+    }
+    li .del { background: transparent; color: #e5484d; font-weight: 700; padding: 2px 6px; }
+    .toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 12px; }
+    .hint { font-size: 11px; opacity: 0.6; margin-top: 8px; }
+    .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: rgba(79,124,255,.2); }
+  </style>
+</head>
+<body>
+  <h1>Frustration Assistant</h1>
+  <p class="sub">Grant access only to the sites you want monitored. Nothing is read from sites outside this list.</p>
+
+  <div class="toggle">
+    <input type="checkbox" id="enabled" />
+    <label for="enabled">Monitoring enabled</label>
+    <span class="badge" id="count">0 sites</span>
+  </div>
+
+  <div class="row">
+    <input type="text" id="site" placeholder="e.g. youtube.com" />
+    <button id="add">Add</button>
+  </div>
+
+  <ul id="list"></ul>
+
+  <div class="row">
+    <button class="ghost" id="importHistory">Suggest from my history</button>
+    <button class="ghost" id="clear">Clear all</button>
+  </div>
+
+  <p class="hint">"Suggest from my history" reads your recent browser history (with your approval) to pre-fill the allow-list. The extension never uploads history anywhere.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

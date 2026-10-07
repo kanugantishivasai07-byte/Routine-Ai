@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Frustration-Aware Assistant",
+  "version": "1.0.0",
+  "description": "Monitors allowed sites for frustration signals and glitches, then suggests alternatives.",
+  "permissions": [
+    "storage",
+    "history",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Frustration Assistant"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
